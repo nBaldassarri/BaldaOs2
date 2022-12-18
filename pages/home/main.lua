@@ -1,4 +1,4 @@
-local basalt = require("basalt")
+local basalt = require("/sys/basalt")
 
 local main = basalt.createFrame()
 local button = main --> Basalt returns an instance of the object on most methods, to make use of "call-chaining"
