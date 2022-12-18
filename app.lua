@@ -8,7 +8,7 @@ local button = main --> Basalt returns an instance of the object on most methods
         :setText("Click me!")
         :onClick(
             function() 
-                i = i + 1;
+                i = i + 1
                 basalt.debug("I got clicked " + i + " times") 
             end)
 
