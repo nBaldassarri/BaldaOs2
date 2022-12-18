@@ -1,4 +1,5 @@
 shell.run("rm /sys")
+shell.run("rm /pages")
 shell.run("rm /startup")
 
  
