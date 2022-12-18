@@ -1,2 +1,1 @@
-shell.run("wget run https://basalt.madefor.cc/install.lua source sys")
 shell.run("sys/app")
