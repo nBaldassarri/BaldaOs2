@@ -1,1 +1,1 @@
-shell.run("sys/app")
+shell.run("app")
