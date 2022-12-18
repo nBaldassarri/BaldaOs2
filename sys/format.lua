@@ -1,6 +1,5 @@
-shell.run("rm /basalt")
 shell.run("rm /sys")
-shell.run("rm startup")
+shell.run("rm /startup")
 
 term.clear()
 term.setCursorPos(1,1)
