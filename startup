@@ -1,1 +1,1 @@
-shell.run("sys/main")
+shell.run("pages/home/main")
