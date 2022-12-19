@@ -1,162 +1,73 @@
 local basalt = require("/sys/basalt")
 
-basalt.setVariable("buttonColor", basalt.schedule(function(self) 
-    self:setBackground(colors.black)
-    self:setForeground(colors.lightGray)
-    os.sleep(0.1)
-    self:setBackground(colors.gray)
-    self:setForeground(colors.black)
-end))
+local w, h = term.getSize()
 
-local main
+local main = basalt.createFrame("mainFrame")
+local objFrame = main:addFrame("objectFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1)
+local programFrame = main:addFrame("programFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
+local editorFrame = main:addFrame("editorFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
 
-basalt.setVariable("ex1", function()
-    main:addAnimation():setObject(main):setAutoDestroy():offset(0,0,1):play()
-end)
-
-basalt.setVariable("ex1Top", function()
-    local example1 = main:getDeepObject("example1")
-    example1:addAnimation():setObject(example1):setAutoDestroy():offset(0,0,1):play()
-end)
-
-basalt.setVariable("ex2", function()
-    main:addAnimation():setObject(main):setAutoDestroy():offset(main:getWidth(),0,1):play()
-end)
-
-basalt.setVariable("p1", function()
-    local example2 = main:getDeepObject("example2")
-    example2:addAnimation():setObject(example2):setAutoDestroy():offset(0,0,1):play()
-end)
-
-basalt.setVariable("p2", function()
-    local example2 = main:getDeepObject("example2")
-    example2:addAnimation():setObject(example2):setAutoDestroy():offset(0,example2:getHeight(),1):play()
-end)
-
-basalt.setVariable("p3", function()
-    local example2 = main:getDeepObject("example2")
-    example2:addAnimation():setObject(example2):setAutoDestroy():offset(0,example2:getHeight()*2,1):play()
-end)
-
-basalt.setVariable("ex3", function()
-    main:addAnimation():setObject(main):setAutoDestroy():offset(main:getWidth()*2,0,1):play()
-end)
-
-basalt.setVariable("e1", function()
-    local example3 = main:getDeepObject("example3")
-    example3:addAnimation():setObject(example3):setAutoDestroy():offset(0,0,1):play()
-end)
-
-basalt.setVariable("e2", function()
-    local example3 = main:getDeepObject("example3")
-    example3:addAnimation():setObject(example3):setAutoDestroy():offset(0,example3:getHeight(),1):play()
-end)
-
-basalt.setVariable("e3", function()
-    local example3 = main:getDeepObject("example3")
-    example3:addAnimation():setObject(example3):setAutoDestroy():offset(0,example3:getHeight()*2,1):play()
-end)
-
-basalt.setVariable("ex4", function()
-    main:addAnimation():setObject(main):setAutoDestroy():offset(main:getWidth()*3,0,1):play()
-end)
-
-basalt.setVariable("progressChange", function(self)
-    main:getDeepObject("progressLabel"):setText(self:getValue().."%")
-end)
-
-basalt.setVariable("pauseP2", function()
-    main:getDeepObject("program2"):pause()
-end)
-
-basalt.setVariable("pauseP3", function()
-    main:getDeepObject("program3"):pause()
-end)
-
-basalt.setVariable("startAnimation", function()
-    main:getDeepObject("animation1"):play()
-end)
-
-basalt.setVariable("disableStartButton", function()
-    main:getDeepObject("animationButton"):disable()
-end)
-
-basalt.setVariable("enableStartButton", function()
-    main:getDeepObject("animationButton"):enable()
-end)
-
-basalt.setVariable("onTextfieldFocus", function()
-    main:getDeepObject("coolTextfield"):setForeground(colors.lightGray)
-    main:getDeepObject("textfieldAnimLoseFocus"):cancel()
-    main:getDeepObject("textfieldAnimFocus"):play()
-end)
-
-basalt.setVariable("onTextfieldLoseFocus", function()
-    main:getDeepObject("coolTextfield"):setForeground(colors.gray)
-    main:getDeepObject("textfieldAnimFocus"):cancel()
-    main:getDeepObject("textfieldAnimLoseFocus"):play()
-end)
-
-basalt.setVariable("makeButtonVisible", function()
-    main:getDeepObject("showAnimBtn1"):show()
-    main:getDeepObject("showAnimBtn2"):show()
-    main:getDeepObject("showAnimBtn3"):show()
-end)
-
-basalt.setVariable("dragPosition", function(ob, ev, bt, x, y, dragStartX, dragStartY, mouseX, mouseY)
-    ob:setPosition(x, y)
-end)
-
-
-local function inject(prog, key)
-    local events = prog:getQueuedEvents()
-    table.insert(events, 1, {event="key", args = {key}})
-    prog:injectEvents(events)
-    prog:updateQueuedEvents({})
-end
-
-basalt.setVariable("p3Up", function()
-    local program = main:getDeepObject("program3")
-    inject(program, keys.w)
-end)
-
-basalt.setVariable("p3Down", function()
-    local program = main:getDeepObject("program3")
-    inject(program, keys.s)
-end)
-
-basalt.setVariable("p3Left", function()
-    local program = main:getDeepObject("program3")
-    inject(program, keys.a)
-end)
-
-basalt.setVariable("p3Right", function()
-    local program = main:getDeepObject("program3")
-    inject(program, keys.d)
-end)
-
-basalt.setVariable("noDrag", function(self)
-    return false
-end)
-
-basalt.setVariable("openSidebar", function(self)
-    main:addAnimation():setObject(main:getDeepObject("sidebar")):setAutoDestroy():move(-12,1,1):play()
-end)
-basalt.setVariable("closeSidebar", function(self)
-    main:addAnimation():setObject(main:getDeepObject("sidebar")):setAutoDestroy():move(2,1,1):play()
-end)
-
-basalt.setVariable("progressTheProgressbar", function()
-    os.sleep(1)
-    local progressbar = main:getDeepObject("progressBar")
-    local progress = 0
-    while true do
-        progressbar:setProgress(progress)
-        progress = progress+0.25
-        os.sleep(1)
+local menuBar = main:addMenubar("mainMenuBar"):addItem("Object"):addItem("Program"):addItem("Editor"):setBackground(colors.gray):setSize(w, 1):setSpace(5):setScrollable():show()
+menuBar:onChange(function(self)
+    objFrame:hide()
+    programFrame:hide()
+    editorFrame:hide()
+    if(self:getValue().text=="Object")then
+        objFrame:show() 
+    elseif(self:getValue().text=="Program")then
+        programFrame:show() 
+    elseif(self:getValue().text=="Editor")then
+        editorFrame:show() 
     end
 end)
 
-main = basalt.createFrame():addLayout("/pages/home/template.xml")
+local function visualButton(btn)
+    btn:onClick(function(self) btn:setBackground(colors.black) btn:setForeground(colors.lightGray) end)
+    btn:onClickUp(function(self) btn:setBackground(colors.gray) btn:setForeground(colors.black) end)
+    btn:onLoseFocus(function(self) btn:setBackground(colors.gray) btn:setForeground(colors.black) end)
+end
+
+--Object Frame:
+
+visualButton(objFrame:addButton("exampleButton"):setText("Button"):setSize(12,3):setPosition(2,2):onClick(function() end):show())
+local sliderValue = objFrame:addLabel("sliderValueLabel"):setPosition(11,6):setText("1"):show()
+objFrame:addSlider("exampleSlider"):setPosition(2,6):onChange(function(self) sliderValue:setText(self:getValue()) end):show()
+objFrame:addInput("exampleText"):setPosition(2,8):setSize(16,1):setBackground(colors.black):setForeground(colors.lightGray):setDefaultText("Text Example", colors.gray):show()
+objFrame:addInput("exampleNumber"):setPosition(2,10):setSize(16,1):setBackground(colors.black):setForeground(colors.lightGray):setDefaultText("Number Example", colors.gray):setInputType("number"):show()
+objFrame:addInput("examplePassword"):setPosition(2,12):setSize(16,1):setBackground(colors.black):setForeground(colors.lightGray):setDefaultText("Password Example", colors.gray):setInputType("password"):show()
+
+objFrame:addList("exampleList"):setPosition(20,2):addItem("1. Entry"):addItem("2. Entry"):addItem("3. Entry"):addItem("4. Entry"):addItem("5. Entry"):addItem("6. Entry"):addItem("7. Entry"):addItem("8. Entry"):show()
+objFrame:addDropdown("exampleDropdown"):setPosition(37,2):addItem("1. Entry"):addItem("2. Entry"):addItem("3. Entry"):addItem("4. Entry"):addItem("5. Entry"):addItem("6. Entry"):addItem("7. Entry"):addItem("8. Entry"):show()
+objFrame:addCheckbox("exampleCheckbox1"):setPosition(20,10):show()
+objFrame:addLabel("checkbox1Label"):setPosition(22,10):setText("Checkbox 1"):show()
+objFrame:addCheckbox("exampleCheckbox2"):setPosition(20,12):show()
+objFrame:addLabel("checkbox2Label"):setPosition(22,12):setText("Checkbox 2"):show()
+
+objFrame:addRadio("exampleRadio"):setPosition(35,10):addItem("", 1, 1):addItem("", 1, 3):addItem("", 1, 5):setSelectedItem(colors.gray, colors.black):show()
+objFrame:addLabel("radio1Label"):setPosition(37,10):setText("Radio 1"):show()
+objFrame:addLabel("radio2Label"):setPosition(37,12):setText("Radio 2"):show()
+objFrame:addLabel("radio3Label"):setPosition(37,14):setText("Radio 3"):show()
+
+objFrame:addScrollbar("exampleScrollbar"):setPosition(objFrame:getWidth(),1):setMaxValue(objFrame:getHeight()):setSize(1,objFrame:getHeight()):setSymbolSize(3):ignoreOffset():onChange(function(self) objFrame:setOffset(0, (self:getValue()-1)) end):setAnchor("topRight"):show():setZIndex(15)
+local prog = objFrame:addProgressbar("exampleProgressbar"):setAnchor("bottomLeft"):setSize(30, 3):setBackground(colors.gray):setPosition(2,3):onProgressDone(function()
+basalt.debug("Progress done!")
+end):show()
+
+
+local timer = objFrame:addTimer("exampleTimer"):setTime(1, -1):onCall(function()
+    prog:setProgress(prog:getProgress()+2)
+end):start()
+
+--Program Frame:
+local programCount = 1
+visualButton(programFrame:addButton("exampleButton"):setText("Add Shell"):setSize(13,3):setPosition(2,2):onClick(function()
+    local newProgramWindow = programFrame:addFrame("programFrame"..programCount):setMovable(true):setBar("Console", colors.black, colors.lightGray):showBar():setPosition(3,3):setSize(26,12):show()
+    local program = newProgramWindow:addProgram("exampleProgram"..programCount):setSize(26,11):setPosition(1,2):setBackground(colors.black):show()
+    program:execute("rom/programs/shell.lua")
+    programCount = programCount + 1
+end):show())
+
+-- Editor Frame:
+editorFrame:addTextfield("exampleTextfield"):setPosition(2,2):setBackground(colors.black):setSize(w-2,h-3):setForeground(colors.white):show()
 
 basalt.autoUpdate()
