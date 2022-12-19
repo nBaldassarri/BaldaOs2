@@ -29,7 +29,7 @@ end
 
 --Home Frame:
 visualButton(homeFrame:addButton("updateButton"):setText("AGGIORNA"):setSize(13,3):setPosition(2,2):onClick(function()
-    program:execute("sys/update.lua")
+    shell.run(("./sys/update.lua")
 end):show())
 
 --Program Frame:
