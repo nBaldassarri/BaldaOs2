@@ -37,6 +37,9 @@ end):show())
 visualButton(programFrame:addButton("minerButton"):setText("MINER"):setSize(13,3):setPosition(2,2):onClick(function()
     shell.run("./programs/miner.lua")
 end):show())
+visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):setPosition(6,2):onClick(function()
+    shell.run("./programs/test.lua")
+end):show())
 
 -- Editor Frame:
 editorFrame:addTextfield("exampleTextfield"):setPosition(2,2):setBackground(colors.black):setSize(w-2,h-3):setForeground(colors.white):show()
