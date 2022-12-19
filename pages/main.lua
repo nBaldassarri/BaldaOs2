@@ -37,7 +37,7 @@ end):show())
 visualButton(programFrame:addButton("minerButton"):setText("MINER"):setSize(13,3):setPosition(2,2):onClick(function()
     shell.run("./programs/miner.lua")
 end):show())
-visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):setPosition(2,8):onClick(function()
+visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):setPosition(2,6):onClick(function()
     shell.run("./programs/test.lua")
 end):show())
 
