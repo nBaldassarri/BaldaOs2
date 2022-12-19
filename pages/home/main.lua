@@ -28,8 +28,8 @@ local function visualButton(btn)
 end
 
 --Home Frame:
-homeFrame:addLabel("titleLabel"):setText("BALDA OS"):setFontSize(1.5):setPosition(14,2)
-visualButton(homeFrame:addButton("updateButton"):setText("AGGIORNA"):setSize(13,3):setPosition(2,8):onClick(function()
+homeFrame:addLabel("titleLabel"):setText("BALDA OS"):setFontSize(2):setPosition(14,3)
+visualButton(homeFrame:addButton("updateButton"):setText("AGGIORNA"):setSize(13,3):setPosition(2,10):onClick(function()
     shell.run("./sys/update.lua")
 end):show())
 
