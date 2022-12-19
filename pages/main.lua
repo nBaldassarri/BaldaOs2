@@ -34,7 +34,7 @@ visualButton(homeFrame:addButton("updateButton"):setText("AGGIORNA"):setSize(13,
 end):show())
 
 --Program Frame:
-visualButton(homeFrame:addButton("minerButton"):setText("MINER"):setSize(13,3):setPosition(2,2):onClick(function()
+visualButton(programFrame:addButton("minerButton"):setText("MINER"):setSize(13,3):setPosition(2,2):onClick(function()
     shell.run("./programs/miner.lua")
 end):show())
 -- Editor Frame:
