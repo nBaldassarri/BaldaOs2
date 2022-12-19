@@ -2,7 +2,7 @@ function eat()
     print("eating...")
     for i = 1, 16 do
         turtle.select(i) 
-        if turtle.refuel(0)
+        if turtle.refuel(0) then 
             turtle.refuel(turtle.getItemCount(i))
             return
         end
