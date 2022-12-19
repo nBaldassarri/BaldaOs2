@@ -1,4 +1,4 @@
-local basalt = require("sys/basalt")
+local basalt = require("/sys/basalt")
 
 local w, h = term.getSize()
 
