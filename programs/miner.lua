@@ -3,9 +3,7 @@ function eat()
     for i = 1, 16 do
         turtle.select(i) 
         if turtle.refuel(0)
-            local stack = math.ceil(turtle.getItemCount(i))
-            turtle.refuel(stack)
-            print('Fuel-Level: ' .. turtle.getFuelLevel());
+            turtle.refuel(turtle.getItemCount(i))
             return
         end
     end
