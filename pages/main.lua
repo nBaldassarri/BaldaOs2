@@ -46,7 +46,7 @@ end):show())
 visualButton(programFrame:addButton("edo2Button"):setText("endertest"):setSize(13,3):setPosition(18,2):onClick(function()
     shell.run("./programs/enderedo.lua")
 end):show())
-visualButton(programFrame:addButton("edo3Button"):setText("endertest"):setSize(13,3):setPosition(18,6):onClick(function()
+visualButton(programFrame:addButton("edo3Button"):setText("endertestrisp"):setSize(13,3):setPosition(18,6):onClick(function()
     shell.run("./programs/enderedorisp.lua")
 end):show())
 
