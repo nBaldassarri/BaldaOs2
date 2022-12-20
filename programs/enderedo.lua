@@ -2,7 +2,7 @@ local dfpwm = require("cc.audio.dfpwm")
 local speaker = peripheral.find("speaker")
 local decoder = dfpwm.make_decoder()
 
-for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2) do
+for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024) do
     local buffer = decoder(chunk)
 
     while not speaker.playAudio(buffer) do
@@ -14,7 +14,7 @@ end
 
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 
-for chunk in io.lines("programs/sounds/finischedproduction.dfpwm", 16 * 1024 * 2) do
+for chunk in io.lines("programs/sounds/finischedproduction.dfpwm", 16 * 1024) do
     local buffer = decoder(chunk)
 
     while not speaker.playAudio(buffer) do
