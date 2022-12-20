@@ -27,9 +27,7 @@ print("funziona?")
 
 nome = "--"
 print(nome)
-print("Ora il vero nome")
-nome = isWireless()
-print(nome)
+print("Apertura Channel")
 modem.open(1)
 controllo = 0
 controllo = isOpen(1)	
@@ -38,6 +36,7 @@ if controllo == 0 then
 elseif controllo == 1 then
     print("Channel Aperto")
 modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
+print("Messaggio Trasmesso")
 end
 
 local event, side, channel, replyChannel, message, distance
