@@ -40,7 +40,7 @@ end):show())
 visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):setPosition(2,6):onClick(function()
     shell.run("./programs/test.lua")
 end):show())
-visualButton(programFrame:addButton("edoButton"):setText("edotest"):setSize(13,3):setPosition(14,2):onClick(function()
+visualButton(programFrame:addButton("edoButton"):setText("edotest"):setSize(13,3):setPosition(18,2):onClick(function()
     shell.run("./programs/edo.lua")
 end):show())
 
