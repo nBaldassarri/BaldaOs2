@@ -1,5 +1,5 @@
 //*statoChannel = modem.isOpen(1)	
-if statoChannel == 1 then*//
+if statoChannel == 1 then*/
   while true do 
     local event, side, channel, replyChannel, message, distance
     repeat
