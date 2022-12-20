@@ -1,4 +1,4 @@
-local modem = peripheral.find("modem") or error("chiama caste va........", 0)
+local modem = peripheral.find("modem") or error("No modem attached", 0)
 local dfpwm = require("cc.audio.dfpwm")
 local speaker = peripheral.find("speaker")
 local decoder = dfpwm.make_decoder()
