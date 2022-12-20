@@ -1,0 +1,13 @@
+local modem = peripheral.find("modem") or error("chiama caste va........", 0)
+statoChannel = isOpen(1)
+if statoChannel == 1 then
+  white true do 
+  local event, side, channel, replyChannel, message, distance
+  repeat
+    event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
+    print(("Messaggio Ricevuto questa è la risposta che ha scritto edo"):format(side, channel, replyChannel, distance, tostring(message)))
+  end
+elseif statoChannel == 0 then
+  print("DIO CANE NON VA")
+end
+
