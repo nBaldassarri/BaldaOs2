@@ -15,7 +15,7 @@ end
 
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 
-for chunk in io.lines("programs/sounds/finischedproduction.dfpwm", 16 * 1024) do
+for chunk in io.lines("programs/sounds/finishedproduction.dfpwm", 16 * 1024) do
     local buffer = decoder(chunk)
 
     while not speaker.playAudio(buffer) do
