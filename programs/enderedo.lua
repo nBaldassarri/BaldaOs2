@@ -35,7 +35,6 @@ controllo = 0
 controllo = isOpen(1)	
 if controllo == 0 then
     print("Channel Chiuso")
-end
 elseif controllo == 1 then
     print("Channel Aperto")
 modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
