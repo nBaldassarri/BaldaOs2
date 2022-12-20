@@ -1,4 +1,18 @@
 local modem = peripheral.find("modem") or error("chiama caste va........", 0)
+local dfpwm = require("cc.audio.dfpwm")
+local speaker = peripheral.find("speaker")
+local decoder = dfpwm.make_decoder()
+
+for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2) do
+    local buffer = decoder(chunk)
+
+    while not speaker.playAudio(buffer) do
+        os.pullEvent("speaker_audio_empty")
+    end
+end
+
+print("funziona?")
+
 nome = "--"
 print(nome)
 print("Ora il vero nome")
