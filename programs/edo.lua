@@ -9,3 +9,11 @@ for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024) do
         os.pullEvent("speaker_audio_empty")
     end
 end
+
+for chunk in io.lines("programs/sounds/finishedproduction.dfpwm", 16 * 1024) do
+  local buffer = decoder(chunk)
+
+  while not speaker.playAudio(buffer) do
+      os.pullEvent("speaker_audio_empty")
+  end
+end
