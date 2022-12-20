@@ -40,6 +40,9 @@ end):show())
 visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):setPosition(2,6):onClick(function()
     shell.run("./programs/test.lua")
 end):show())
+visualButton(programFrame:addButton("testButton"):setText("edotest"):setSize(13,3):setPosition(8,2):onClick(function()
+    shell.run("./programs/edo.lua")
+end):show())
 
 -- Editor Frame:
 editorFrame:addTextfield("exampleTextfield"):setPosition(2,2):setBackground(colors.black):setSize(w-2,h-3):setForeground(colors.white):show()
