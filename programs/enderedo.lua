@@ -29,7 +29,7 @@ nome = "--"
 print(nome)
 print("Apertura Channel")
 modem.open(1)
-controllo = isOpen(1)	
+controllo = modem.isOpen(1)	
 if controllo == 0 then
     print("Channel Chiuso")
 elseif controllo == 1 then
