@@ -1,4 +1,3 @@
-local modem = peripheral.find("modem") or error("No modem attached", 0)
 statoChannel = isOpen(1)
 if statoChannel == 1 then
   while true do 
