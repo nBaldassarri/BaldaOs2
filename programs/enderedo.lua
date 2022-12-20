@@ -29,7 +29,7 @@ nome = "--"
 print(nome)
 print("Ora il vero nome")
 nome = isWireless()
-print(nome-)
+print(nome)
 modem.open(1)
 controllo = 0
 controllo = isOpen(1)	
