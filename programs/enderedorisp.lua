@@ -1,7 +1,7 @@
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 statoChannel = isOpen(1)
 if statoChannel == 1 then
-  white true do 
+  while true do 
   local event, side, channel, replyChannel, message, distance
   repeat
     event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
