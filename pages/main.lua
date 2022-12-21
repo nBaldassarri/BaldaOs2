@@ -76,7 +76,7 @@ visualButton(programFrame:addButton("testButton"):setText("TEST"):setSize(13,3):
     openProgram("./programs/test.lua")
 end):show())
 visualButton(programFrame:addButton("edoButton"):setText("edotest"):setSize(13,3):setPosition(2,10):onClick(function()
-    openProgram("./programs/edo.lua")
+    shell.run("./programs/edo.lua")
 end):show())
 visualButton(programFrame:addButton("edo2Button"):setText("endertest"):setSize(13,3):setPosition(16,2):onClick(function()
     openProgram("./programs/enderedo.lua")
