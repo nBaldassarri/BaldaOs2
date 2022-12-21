@@ -1,5 +1,12 @@
 local basalt = require("/sys/basalt")
 
+local w, h = term.getSize()
+
+local main = basalt.createFrame("mainFrame")
+local homeFrame = main:addFrame("homeFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1)
+local programFrame = main:addFrame("programFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
+local editorFrame = main:addFrame("editorFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
+
 local function openProgram(path, title, x, y, w, h)
     local pId = id
     id = id + 1
@@ -32,13 +39,6 @@ local function openProgram(path, title, x, y, w, h)
     processes[pId] = f
     return f
 end
-
-local w, h = term.getSize()
-
-local main = basalt.createFrame("mainFrame")
-local homeFrame = main:addFrame("homeFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1)
-local programFrame = main:addFrame("programFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
-local editorFrame = main:addFrame("editorFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
 
 local menuBar = main:addMenubar("mainMenuBar"):addItem("HOME"):addItem("PROGRAMMI"):addItem("EDITOR"):setBackground(colors.gray):setSize(w, 1):setSpace(5):setScrollable():show()
 menuBar:onChange(function(self)
