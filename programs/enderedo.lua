@@ -38,11 +38,8 @@ if statoChannel == true then
     repeat
       event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
     until channel == 1
-    
-    print("Ricevuto Corvo" .. tostring(message))
 else
     print("CHANNEL CHIUSO")
-    
 end
 
 
