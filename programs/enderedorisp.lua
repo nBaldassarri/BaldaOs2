@@ -15,7 +15,7 @@ print("questo e id pc MODIFIED")
 print(nomepc)
 
 while true do
-  local id, message = rednet.receive(nil, )
+  local id, message = rednet.receive(nil)
   if not id then
       printError("No message received")
   else
