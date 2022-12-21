@@ -34,7 +34,7 @@ if statoChannel == true then
     print("CHANNEL APERTO")
     modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
     print("Messaggio Trasmesso")
-elseif
+elseif then
     print("CHANNEL CHIUSO")
     
 end
