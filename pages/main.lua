@@ -1,5 +1,38 @@
 local basalt = require("/sys/basalt")
 
+local function openProgram(path, title, x, y, w, h)
+    local pId = id
+    id = id + 1
+    local f = main:addFrame()
+        :setMovable()
+        :setSize(w or 30, h or 12)
+        :setPosition(x or math.random(2, 12), y or math.random(2, 8))
+
+    f:addLabel()
+        :setSize("parent.w", 1)
+        :setBackground(colors.black)
+        :setForeground(colors.lightGray)
+        :setText(title or "New Program")
+
+    f:addProgram()
+        :setSize("parent.w", "parent.h - 1")
+        :setPosition(1, 2)
+        :execute(path or "rom/programs/shell.lua")
+
+    f:addButton()
+        :setSize(1, 1)
+        :setText("X")
+        :setBackground(colors.black)
+        :setForeground(colors.red)
+        :setPosition("parent.w", 1)
+        :onClick(function()
+            f:remove()
+            processes[pId] = nil
+        end)
+    processes[pId] = f
+    return f
+end
+
 local w, h = term.getSize()
 
 local main = basalt.createFrame("mainFrame")
@@ -43,11 +76,14 @@ end):show())
 visualButton(programFrame:addButton("edoButton"):setText("edotest"):setSize(13,3):setPosition(2,10):onClick(function()
     shell.run("./programs/edo.lua")
 end):show())
-visualButton(programFrame:addButton("edo2Button"):setText("endertest"):setSize(13,3):setPosition(18,2):onClick(function()
+visualButton(programFrame:addButton("edo2Button"):setText("endertest"):setSize(13,3):setPosition(16,2):onClick(function()
     shell.run("./programs/enderedo.lua")
 end):show())
-visualButton(programFrame:addButton("edo3Button"):setText("endertestrisp"):setSize(13,3):setPosition(18,6):onClick(function()
+visualButton(programFrame:addButton("edo3Button"):setText("endertestrisp"):setSize(13,3):setPosition(16,6):onClick(function()
     shell.run("./programs/enderedorisp.lua")
+end):show())
+visualButton(programFrame:addButton("gameButton"):setText("GAME"):setSize(13,3):setPosition(16,10):onClick(function()
+    openProgram("rom/programs/fun/worm.lua")
 end):show())
 
 -- Editor Frame:
