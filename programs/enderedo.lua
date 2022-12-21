@@ -30,7 +30,7 @@ print(nome)
 print("Apertura Channel")
 modem.open(1)
 statoChannel = modem.isOpen(1)
-if statoChannel == true 
+if statoChannel == true then
     print("CHANNEL APERTO")
     modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
     print("Messaggio Trasmesso")
