@@ -29,13 +29,14 @@ nome = "--"
 print(nome)
 print("Apertura Channel")
 modem.open(1)
-controllo = modem.isOpen(1)	
-if controllo == 0 then
-    print("Channel Chiuso")
-elseif controllo == 1 then
-    print("Channel Aperto")
-modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
-print("Messaggio Trasmesso")
+statoChannel = modem.isOpen(1)
+if statoChannel == true 
+    print("CHANNEL APERTO")
+    modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
+    print("Messaggio Trasmesso")
+elseif
+    print("CHANNEL CHIUSO")
+    
 end
 
 local event, side, channel, replyChannel, message, distance
