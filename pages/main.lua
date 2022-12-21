@@ -7,6 +7,8 @@ local homeFrame = main:addFrame("homeFrame"):setPosition(1,2):setBackground(colo
 local programFrame = main:addFrame("programFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
 local editorFrame = main:addFrame("editorFrame"):setPosition(1,2):setBackground(colors.lightGray):setSize(w, h-1):hide()
 
+local id = 1
+local processes = {}
 local function openProgram(path, title, x, y, w, h)
     local pId = id
     id = id + 1
