@@ -10,7 +10,7 @@ for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2
     end
 end
 
-
+rednet.open("left")
 peripheral.find("modem", rednet.open)
 if rednet.isOpen == true then
     print("CASTE LICENZIATO")
