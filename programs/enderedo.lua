@@ -34,14 +34,15 @@ if statoChannel == true then
     print("CHANNEL APERTO")
     modem.transmit(1, 1, "Corvo chiama Roger Rispondete Roger")
     print("Messaggio Trasmesso")
-elseif then
+    local event, side, channel, replyChannel, message, distance
+    repeat
+      event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
+    until channel == 1
+    
+    print("Ricevuto Corvo" .. tostring(message))
+else
     print("CHANNEL CHIUSO")
     
 end
 
-local event, side, channel, replyChannel, message, distance
-repeat
-  event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
-until channel == 1
 
-print("Ricevuto Corvo" .. tostring(message))
