@@ -89,6 +89,6 @@ visualButton(programFrame:addButton("gameButton"):setText("GAME"):setSize(13,3):
 end):show())
 
 -- Editor Frame:
-editorFrame:addTextfield("exampleTextfield"):setPosition(2,2):setBackground(colors.black):setSize(w-2,h-3):setForeground(colors.white):show()
+editorFrame:addProgram():setPosition(2,2):setSize(w-2,h-3):execute("rom/programs/shell.lua"):show()
 
 basalt.autoUpdate()
