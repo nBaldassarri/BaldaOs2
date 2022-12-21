@@ -1,4 +1,4 @@
-local basalt = require("basalt")
+local basalt = require("/sys/basalt")
 
 local main = basalt.createFrame():setTheme({FrameBG = colors.lightGray, FrameFG = colors.black})
 
