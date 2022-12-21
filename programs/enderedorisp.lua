@@ -7,7 +7,7 @@ labelpc = rednet.getComputerLabel()
 print("questo e label pc NNM")
 print(labelpc)
 
-rednet.setComputerLabel([BESTIADISATANA])
+rednet.setComputerLabel(BESTIADISATANA)
 print("questo e label pc MODIFIED")
 print(labelpc)
 
