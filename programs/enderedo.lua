@@ -12,7 +12,7 @@ end
 
 
 peripheral.find("modem", rednet.open)
-if rednet.isOpen == true
+if rednet.isOpen == true then
     print("CASTE LICENZIATO")
 else
     print("CHIAMA CASTE")
