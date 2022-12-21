@@ -11,8 +11,29 @@ for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2
 end
 
 
+peripheral.find("modem", rednet.open)
+if rednet.isOpen == true
+    print("CASTE LICENZIATO")
+else
+    print("CHIAMA CASTE")
+end
+/*rednet.host(protosciutto, faro)
+rednet.send(recipient, message [, protocol])
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 
 for chunk in io.lines("programs/sounds/finishedproduction.dfpwm", 16 * 1024) do
