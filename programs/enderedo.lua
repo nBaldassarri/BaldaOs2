@@ -18,6 +18,6 @@ else
     print("CHIAMA CASTE")
 end
 rednet.host(protosciutto, faro)
-rednet.send(BESTIADISATANA, "DIOCANE PORCO DIO" , protosciutto)
+rednet.send("BESTIADISATANA", "DIOCANE PORCO DIO" , protosciutto)
 
 
