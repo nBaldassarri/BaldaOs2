@@ -17,7 +17,7 @@ if rednet.isOpen == true then
 else
     print("CHIAMA CASTE")
 end
-rednet.host(protosciutto, faro)
+rednet.host("protosciutto", "faro")
 rednet.send("BESTIADISATANA", "DIOCANE PORCO DIO" , protosciutto)
 
 
