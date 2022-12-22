@@ -1,26 +1,16 @@
-peripheral.find("modem", rednet.open)
-nomepc = os.computerID()
-print("questo e id pc NNM")
-print(nomepc)
+local modem = peripheral.find("modem") or error("No modem attached", 0)
 
-labelpc = os.getComputerLabel()
-print("questo e label pc NNM")
-print(labelpc)
-
-os.setComputerLabel("BESTIADISATANA")
-print("questo e label pc MODIFIED")
-print(labelpc)
-
-print("questo e id pc MODIFIED")
-print(nomepc)
-
-while true do
-  local id, message = rednet.receive(nil)
-  if not id then
-      printError("No message received")
-  else
-      print(("Computer %d sent message %s"):format(id, message))
+if modem.isOpen(1) == true then
+  modem.transmit(1,1,"PRIMO MESSAGGIO INVIATO")
+  int = 1
+  while true do
+    local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
+    print(("MESSAGGIO RICEVUTO %s on channel %d (reply to %d) from %f blocks away with message %s"):format(side, channel, replyChannel, distance, tostring(message)))
+    int + 1
+    modem.transmit(1,1,"messaggio n" .. tostring(int))
   end
+else
+  print("NON RIESCO A FARE UN CAZZO")
 end
-
+  
 
