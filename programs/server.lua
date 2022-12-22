@@ -1,17 +1,17 @@
 local modem = peripheral.find("modem") or error("No modem attached", 0)
+local DEFAULT_CHANNEL = 50
 
-
-if modem.isOpen(0) == true then
-    modem.close(0)
+if modem.isOpen(DEFAULT_CHANNEL) == true then
+    modem.close(DEFAULT_CHANNEL)
 else
-    modem.open(0)
-    print("CANALE 0 APERTO")
+    modem.open(DEFAULT_CHANNEL)
+    print("CANALE " .. DEFAULT_CHANNEL .." APERTO")
 end
 
 -- And wait for a reply
 local event, side, channel, replyChannel, message, distance
 repeat
     event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
-until channel == 0
+until channel == DEFAULT_CHANNEL
 
 print("Received a reply: " .. tostring(message))
