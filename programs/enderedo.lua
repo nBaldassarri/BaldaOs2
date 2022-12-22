@@ -12,7 +12,7 @@ end
 
 local modem = peripheral.find("modem") or error("No modem attached", 0)
 
-if modem.isWireless == true
+if modem.isWireless == true then
     print("IL MODEM E WIRELESS")
 else
     print("IL MODEM NON e WIRELESS")
