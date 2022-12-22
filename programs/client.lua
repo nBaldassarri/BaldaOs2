@@ -1,2 +1,4 @@
 peripheral.find("modem", rednet.open)
-rednet.broadcast("Hello World!")
+
+msg = read()
+rednet.broadcast(msg)
