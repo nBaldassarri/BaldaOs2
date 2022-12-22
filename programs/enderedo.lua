@@ -40,9 +40,10 @@ else
     print("CANALE 1 APERTO PER LA 1 VOLTA")
     end
 end
+i = 1
 while true do
     local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
     print(("Message received on side %s on channel %d (reply to %d) from %f blocks away with message %s"):format(side, channel, replyChannel, distance, tostring(message)))
-    int + 1
+    i = i + 1
     modem.transmit(1,1,"Risposta n" .. tostring(int))
   end
