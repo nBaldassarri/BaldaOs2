@@ -8,6 +8,8 @@ else
     print("CANALE " .. DEFAULT_CHANNEL .." APERTO")
 end
 
+modem.transmit(10, 20, "Hello, world!")
+
 -- And wait for a reply
 local event, side, channel, replyChannel, message, distance
 repeat
