@@ -8,8 +8,10 @@ else
     print("CANALE 0 APERTO")
 end
 
-
-while true do
+-- And wait for a reply
+local event, side, channel, replyChannel, message, distance
+repeat
     event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
-    print("Received a reply: " .. tostring(message))
-  end
+until channel == 0
+
+print("Received a reply: " .. tostring(message))
