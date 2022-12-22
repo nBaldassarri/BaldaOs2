@@ -1,5 +1,3 @@
-local modem = peripheral.wrap( "right" )
-
 if modem.isOpen(1) == true then
   print("IL CANALE 1 E APERTO")
   modem.close(1)
