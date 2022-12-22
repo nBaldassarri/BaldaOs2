@@ -9,4 +9,4 @@ else
 end
 
 
-modem.transmit(10, DEFAULT_CHANNEL, "Hello, world!")
+modem.transmit(DEFAULT_CHANNEL, DEFAULT_CHANNEL, "Hello, world!")
