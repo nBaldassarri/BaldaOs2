@@ -1,5 +1,5 @@
 local modem = peripheral.find("modem") or error("No modem attached", 0)
-local DEFAULT_CHANNEL = 50
+local DEFAULT_CHANNEL = 20
 
 if modem.isOpen(DEFAULT_CHANNEL) == true then
     modem.close(DEFAULT_CHANNEL)
