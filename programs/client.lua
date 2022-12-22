@@ -1,4 +1,4 @@
 peripheral.find("modem", rednet.open)
-
+print("INSERISCI IL MESSAGGIO DA INVIARE: ")
 msg = read()
-rednet.broadcast(msg)
+rednet.broadcast(os.computerID(), msg)
