@@ -1,2 +1,2 @@
 peripheral.find("modem", rednet.open)
-rednet.revice()
+rednet.recive()
