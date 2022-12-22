@@ -10,7 +10,7 @@ for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2
     end
 end
 
-local modem = peripheral.find("modem") or error("No modem attached", 0)
+local modem = peripheral.wrap( "left" )
 
 if modem.isWireless == true then
     print("IL MODEM E WIRELESS")

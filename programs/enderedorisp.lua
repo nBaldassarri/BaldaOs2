@@ -1,4 +1,4 @@
-local modem = peripheral.find("modem") or error("No modem attached", 0)
+local modem = peripheral.wrap( "right" )
 
 if modem.isOpen(1) == true then
   print("IL CANALE 1 E APERTO")
