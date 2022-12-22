@@ -1,2 +1,9 @@
 peripheral.find("modem", rednet.open)
-rednet.receive()
+print("MODEM APERTO")
+
+while true do
+    id, msg, pro = rednet.receive()
+    print("Computer ID: " .. id)
+    print(msg)
+    print("---------------------")
+end
