@@ -29,10 +29,8 @@ while true do
             while not speaker.playAudio(buffer) do
                 os.pullEvent("speaker_audio_empty")
             end
+            modem.transmit(channel, channel , "Ho risposto con un suono")
         end
-        modem.transmit(channel, channel , "Ho risposto")
-
-
     end
   end
   
