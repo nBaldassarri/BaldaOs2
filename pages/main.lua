@@ -68,13 +68,6 @@ visualButton(homeFrame:addButton("updateButton"):setText("AGGIORNA"):setSize(13,
     shell.run("./sys/update.lua")
 end):show())
 
-visualButton(homeFrame:addButton("testBalda"):setText("SERVER"):setSize(13,3):setPosition(16,8):onClick(function()
-    shell.run("./programs/server.lua")
-end):show())
-visualButton(homeFrame:addButton("testBalda2"):setText("CLIENT"):setSize(13,3):setPosition(16,12):onClick(function()
-    shell.run("./programs/client.lua")
-end):show())
-
 --Program Frame:
 visualButton(programFrame:addButton("minerButton"):setText("MINER"):setSize(13,3):setPosition(2,2):onClick(function()
     openProgram("./programs/miner.lua")
