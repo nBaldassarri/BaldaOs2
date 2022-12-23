@@ -1,4 +1,6 @@
 local modem = peripheral.find("modem") or error("No modem attached", 0)
+local decoder = dfpwm.make_decoder()
+local speaker = peripheral.find("speaker")
 
 if modem.isWireless == true then
     print("IL MODEM E WIRELESS")
@@ -20,7 +22,6 @@ end
 while true do
     local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
     if message == "suono" then
-        local decoder = dfpwm.make_decoder()
         for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2) do
             local buffer = decoder(chunk)
 
