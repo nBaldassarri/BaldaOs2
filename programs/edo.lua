@@ -19,10 +19,18 @@ end
 
 while true do
     local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
-    
+    if message == "suono" then
+        local decoder = dfpwm.make_decoder()
+        for chunk in io.lines("programs/sounds/requestedproduction.dfpwm", 16 * 1024 * 2) do
+            local buffer = decoder(chunk)
 
-    print(("Message received on side %s on channel %d (reply to %d) from %f blocks away with message %s"):format(side, channel, replyChannel, distance, tostring(message)))
-    i = i + 1
-    modem.transmit(1, 1, "Risposta n" .. tostring(i))
+            while not speaker.playAudio(buffer) do
+                os.pullEvent("speaker_audio_empty")
+            end
+        end
+        modem.transmit(channel, channel , "Ho risposto")
+
+
+    end
   end
   
