@@ -11,8 +11,8 @@ for i = 1, 16 do
         if data.name == "minecraft:diamond_pickaxe" then
             print("sono primA DI EQUIP")
             turtle.equipLeft()
+            return
         end
     end
-    return
 end
 
