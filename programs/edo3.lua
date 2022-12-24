@@ -2,8 +2,8 @@
 print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 
 
-perimeter = 20 -- Qui setti il Perimetro
-height = 10 -- Qui l altezza piano dove piazzi turtle compreso
+global perimeter = 20 -- Qui setti il Perimetro
+global height = 10 -- Qui l altezza piano dove piazzi turtle compreso
 
 
 
