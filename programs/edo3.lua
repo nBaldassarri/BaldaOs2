@@ -92,6 +92,7 @@ function squareMiningEmpty(perimeter)
             turtle.turnLeft()
             mineforward(perimeter)
             cycle = 2
+            end
         end
     end
 end
