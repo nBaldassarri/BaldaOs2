@@ -1,7 +1,7 @@
 i = 0
 for i = 1, 16 do
     turtle.select(i) 
-    local data = turtle.getItemDetail()ù
+    local data = turtle.getItemDetail()
 
     if data then
         print("Item name: ", data.name)
