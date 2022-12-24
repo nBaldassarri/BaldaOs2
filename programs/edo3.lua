@@ -63,7 +63,7 @@ function squareMiningEmpty(perimeter)
             turtle.turnRight()
             mineforward(perimeter)
             cycle = cycle + 1
-        else if cycle % 2 =/ 0 then
+        else if cycle % 2 ~= 0 then
             if cycleFirst == 1 then
                 turtle.turnLeft()
                 mineforward(perimeter)
