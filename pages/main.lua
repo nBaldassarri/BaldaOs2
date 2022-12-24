@@ -87,6 +87,9 @@ end):show())
 visualButton(programFrame:addButton("gameButton"):setText("GAME"):setSize(13,3):setPosition(16,10):onClick(function()
     openProgram("rom/programs/fun/worm.lua")
 end):show())
+visualButton(programFrame:addButton("edo4Button"):setText("edo4"):setSize(13,3):setPosition(16,14):onClick(function()
+    openProgram("./programs/edo4.lua")
+end):show())
 
 -- Editor Frame:
 editorFrame:addProgram():setPosition(2,2):setSize(w-2,h-3):execute("rom/programs/shell.lua"):show()
