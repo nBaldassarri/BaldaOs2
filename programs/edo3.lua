@@ -77,8 +77,10 @@ function squareMiningEmpty(perimeter)
     while finishedMining == false do
         if cycle % 2 == 0 then
             turtle.turnRight()
+            turtle.dig()
             turtle.forward()
             turtle.turnRight()
+            turtle.dig()
             mineforward(perimeter)
             cycle = cycle + 1
         elseif cycle % 2 ~= 0 then
@@ -89,8 +91,10 @@ function squareMiningEmpty(perimeter)
                 cycleFirst = 0
             else
             turtle.turnLeft()
+            turtle.dig()
             turtle.forward()
             turtle.turnLeft()
+            turtle.dig()
             mineforward(perimeter)
             cycle = cycle + 1
             end
