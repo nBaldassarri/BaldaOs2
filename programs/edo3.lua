@@ -5,9 +5,6 @@ print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 perimeter = 20 
 height = 10 
 
-squareMiningEmpty(perimeter)
-
-
 function refuelling()
     print("REFUELLING")
     for i = 1, 16 do
@@ -102,5 +99,6 @@ function squareMiningEmpty(perimeter)
     end
 end
 
+squareMiningEmpty(perimeter)
     
 
