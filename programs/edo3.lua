@@ -6,6 +6,7 @@ perimeter = 20
 height = 10 
 
 function refuelling()
+    print("sono entrato in refuel")
     print("REFUELLING")
     for i = 1, 16 do
         turtle.select(i) 
@@ -18,6 +19,7 @@ function refuelling()
 end
 
 function heightpositioning(height)
+    print("sono entrato in heightpos")
     turtleDirection = "turtle"
     local i = 0
     while i < height do 
@@ -27,6 +29,7 @@ function heightpositioning(height)
 end
 
 function mineforward(perimeter)
+    print("sono entrato in mineforw")
     local count = 0 
     local side = false
     while side == false do
@@ -41,6 +44,7 @@ end
 
 
 function squareMiningEmpty(perimeter)
+    print("sono entrato squareempty")
     local cycleFirst = 1
     local cycle = 1
     local heightCycle = 1
