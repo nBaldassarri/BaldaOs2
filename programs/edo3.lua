@@ -5,6 +5,7 @@ print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 perimeter = 20 
 height = 10 
 
+squareMiningEmpty(perimeter)
 
 
 function refuelling()
@@ -30,13 +31,13 @@ end
 
 function mineforward(perimeter)
     local count = 0 
+    local side = false
     while side == false do
         turtle.dig()
         turtle.forward()
         count = count + 1
         if count == perimeter-1 then
             side = true
-            return side
         end
     end
 end
@@ -46,7 +47,8 @@ function squareMiningEmpty(perimeter)
     local cycleFirst = 1
     local cycle = 1
     local heightCycle = 1
-    
+    local finishedMining = false
+
     heightpositioning(height)
     refuelling()
 
@@ -58,7 +60,7 @@ function squareMiningEmpty(perimeter)
     end
 
 
-    finishedMining = false
+
     while finishedMining == false do
         if cycle % 2 == 0 then
             turtle.turnRight()
@@ -101,4 +103,4 @@ function squareMiningEmpty(perimeter)
 end
 
     
-squareMiningEmpty(perimeter)
+
