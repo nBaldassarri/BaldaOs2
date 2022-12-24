@@ -7,7 +7,7 @@ for i = 1, 16 do
         print("Item name: ", data.name)
         print("Item damage value: ", data.damage)
         print("Item count: ", data.count)
-        if data.name == "minecraft:diamond_pickaxe"
+        if data.name == "minecraft:diamond_pickaxe" then
         turtle.equipLeft()
         end
     end
