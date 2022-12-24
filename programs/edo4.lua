@@ -4,8 +4,7 @@ for i = 1, 16 do
     local data = turtle.getItemDetail()
     if data.name == "minecraft:diamond_pickaxe" then
         turtle.equipLeft()
-      end
-      return
     end
+return
 end
 
