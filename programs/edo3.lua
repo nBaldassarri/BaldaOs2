@@ -5,6 +5,24 @@ print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 perimeter = 20 
 heightperimeter = 10 
 
+function pickaxeResearch()
+    local i = 0
+    for i = 1, 16 do
+        turtle.select(i) 
+        local data = turtle.getItemDetail()
+        if data then
+            print("Item name: ", data.name)
+            print("Item damage value: ", data.damage)
+            print("Item count: ", data.count)
+            if data.name == "minecraft:diamond_pickaxe" then
+                turtle.equipLeft()
+                return
+            end
+        end
+    end
+end
+
+
 function refuelling()
     print("sono entrato in refuel")
     print("REFUELLING")
@@ -52,13 +70,7 @@ function squareMiningEmpty(perimeter)
 
     heightpositioning(heightperimeter)
     refuelling()
-
-    for i = 1, 16 do
-        if turtle.getItemDetail(i) == "minecraft:diamond_pickaxe" then
-            turtle.equipLeft()
-            return
-        end
-    end
+    pickaxeResearch()
 
 
 
