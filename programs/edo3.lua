@@ -5,7 +5,7 @@ print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 perimeter = 20 -- Qui setti il Perimetro
 height = 10 -- Qui l altezza piano dove piazzi turtle compreso
 
-squareMiningEmpty(perimeter)
+
 
 function refuelling()
     print("REFUELLING")
@@ -101,4 +101,4 @@ function squareMiningEmpty(perimeter)
 end
 
     
-
+squareMiningEmpty(perimeter)
