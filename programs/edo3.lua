@@ -47,7 +47,7 @@ function squareMiningEmpty(perimeter)
     local cycle = 1
     local heightCycle = 1
     
-    heightpositioning()
+    heightpositioning(height)
     refuelling()
 
     for i = 1, 16 do
