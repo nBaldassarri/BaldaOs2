@@ -3,7 +3,7 @@ print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 -- Qui setti il Perimetro
 -- Qui l altezza piano dove piazzi turtle compreso
 perimeter = 20 
-height = 10 
+heightperimeter = 10 
 
 function refuelling()
     print("sono entrato in refuel")
@@ -19,8 +19,7 @@ function refuelling()
 end
 
 function heightpositioning(height)
-    print("sono entrato in heightpos")
-    turtleDirection = "turtle"
+    print("sono entrato in heightpos".. "   " .. height)
     local i = 0
     while i < height do 
         turtle.up()
@@ -50,7 +49,7 @@ function squareMiningEmpty(perimeter)
     local heightCycle = 1
     local finishedMining = false
 
-    heightpositioning(height)
+    heightpositioning(heightperimeter)
     refuelling()
 
     for i = 1, 16 do
