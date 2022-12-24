@@ -19,6 +19,7 @@ function refuelling()
 end
 
 function heightpositioning(height)
+    local height = height
     print("sono entrato in heightpos".. "   " .. height)
     local i = 0
     while i < height do 
