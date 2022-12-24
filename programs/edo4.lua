@@ -1,7 +1,14 @@
 i = 0
 for i = 1, 16 do
     turtle.select(i) 
-    if turtle.getItemDetail(i) == "minecraft:diamond_pickaxe" then
+    local data = turtle.getItemDetail()
+    if data then
+        print("Item name: ", data.name)
+        print("Item damage value: ", data.damage)
+        print("Item count: ", data.count)
+      end
+    if turtle.getItemDetail(i).name == "minecraft:diamond_pickaxe" then
+        
         turtle.equipLeft()
         return
     end
