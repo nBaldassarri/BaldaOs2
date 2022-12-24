@@ -31,12 +31,13 @@ end
 function mineforward(perimeter)
     local count = 0 
     while side == false do
-    turtle.dig()
-    turtle.forward()
-    count = count + 1
-    if count == perimeter-1 then
-        side = true
-        return side
+        turtle.dig()
+        turtle.forward()
+        count = count + 1
+        if count == perimeter-1 then
+            side = true
+            return side
+        end
     end
 end
 
