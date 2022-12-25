@@ -1,40 +1,11 @@
+local utils = require("/sys/libraries/utils")
+
 -- INIZIALIZZAZIONE PIANO 0
 print("INIZIALIZZAZIONE COSTRUZIONE PAVIMENTAZIONE CAPANNONE")
 -- Qui setti il Perimetro
 -- Qui l altezza piano dove piazzi turtle compreso
 perimeter = 20 
 heightperimeter = 10 
-
-function pickaxeResearch()
-    local i = 0
-    for i = 1, 16 do
-        turtle.select(i) 
-        local data = turtle.getItemDetail()
-        if data then
-            print("Item name: ", data.name)
-            print("Item damage value: ", data.damage)
-            print("Item count: ", data.count)
-            if data.name == "minecraft:diamond_pickaxe" then
-                turtle.equipLeft()
-                return
-            end
-        end
-    end
-end
-
-
-function refuelling()
-    print("sono entrato in refuel")
-    print("REFUELLING")
-    for i = 1, 16 do
-        turtle.select(i) 
-        if turtle.refuel(0) then 
-            turtle.refuel(turtle.getItemCount(i))
-            return
-        end
-    end
-    print('Fuel not found')
-end
 
 function heightpositioning(height)
     local height = height
@@ -69,8 +40,8 @@ function squareMiningEmpty(perimeter)
     local finishedMining = false
 
     heightpositioning(heightperimeter)
-    refuelling()
-    pickaxeResearch()
+    utils.refuelling()
+    utils.pickaxeResearch()
 
 
 
