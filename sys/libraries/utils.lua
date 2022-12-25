@@ -1,4 +1,4 @@
-function refuelling()
+refuelling = function()
     print("sono entrato in refuel")
     print("REFUELLING")
     for i = 1, 16 do
@@ -11,7 +11,7 @@ function refuelling()
     print('Fuel not found')
 end
 
-function pickaxeResearch()
+pickaxeResearch = function()
     local i = 0
     for i = 1, 16 do
         turtle.select(i) 
